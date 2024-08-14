@@ -72,7 +72,7 @@ def optimize_path():
         return jsonify({"error": "No path found"}), 404
     else:
         # Send the computed path to the EV3 robot
-        send_path_to_ev3(computed_path)
+        # send_path_to_ev3(computed_path)
         return jsonify({"path": computed_path}), 200
 
 @app.route('/get-path', methods=['GET'])
