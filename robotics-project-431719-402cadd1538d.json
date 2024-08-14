@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "robotics-project-431719",
+  "private_key_id": "402cadd1538d462116d9d2db3498793dcad647e3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3XmLVIhTdU0j+\nFtTLrLsgSmsubC9ZprVUGPuvdUfCkBL8KaTqwqHBe7p7EhCSTaiLKHQGpyhOWKxI\nf6MYURqHNy1UVS6PlcJ2OVvcLZf+ySUznaWf5qg2TbbPtWmaH9nWTAjZezcBh5KK\n8XWUnBzt3uJHSk0j8fIgFMAzo13z51z7u6lJlBxFRdeKC9T9R+4lb2FJJdehkX+p\nSibLfuNALgOnI79Sc22HO9Oc/eIqpbmjqiI/EKJEDNpLTBXWwSs4lKJI4PTb45zt\nmhKePGWlIPWPpeNom/Y/cnppvlcUUG1cifWeWAzPRO/bh16TQmBYbydXVrUiqLiO\nPWUxjDh7AgMBAAECggEAFWlmF7ElHTsDw6Jy3V2hdCx8cNfyfNYknQSrJFqI3e/o\n550NRC8kqEKEYf6YBMggrYSJwoUeWxeroRjruIPamdNtmEgMvyN4/kkbBY4lY3ul\nZm460Ch6Qpe3Mxs3O5ILOSTOcRFxjjIrKyJK3Tw60ePm1Eru0GBeKjTXb1rc4QVT\ncU8NoYDgpMLa82TTGRst/StBQfqEF8A8OVgzenSlS1vH621SXoWFF1n9ySFLCOe0\nIN/X3jRJULY80gtZc1Otn31y+SGiDPQaozVa6pO9yf5Q1SQrJ7N1R4p4ePMwtNFK\nrOLGCKd/aTfmdMUtn0gxocqY3T6EyqORBuKV5a8G8QKBgQD4EBiLQ0C0T0HCNGGe\nG43yvd64wibl7ZPKsG7HonZE0ZqGNc9B6CxJSBxCizMJ2Y0ic5EG04GWImVVse+R\n46MJId+hakUrlPbFXofED090F2Me6eL9jINYx5RNY1MYzfew0YU9F3m9Sdh4DCWP\nfu/4R1T7PU/+nw6LQwz1bilmrwKBgQC9PF/p17iEQGLf76/t73/k9R3Evf/KCru3\no9nwbuaBe/zvDRwYkpShWgcE6Tv5t8rhKkz0rkH3g4GkqMnVGtf8NC0aspwJX+Af\nGmPK78Jm9UjLW9e3uNyGLJu9Lf5EUXml98eKAKaZXDBU3QVENtnV+DS73PDEWNDZ\nbLL8ei799QKBgQCpSqLVd+JSq7xfA0yTkI6BWR8EzEuro0W3kE0qJS+9q6ZfbZ2y\nhvaiVHok18bPNA9jsacKF5JamcK6hyLOV6JOezWZfWMTaSg4blkNbr10pvlYgZoO\nG7UQA7SsU9rEFNyzaWoa1UiZ7Cm1U+TWV3UB5fyTMbbEOFy+odXYMYRDtQKBgQC0\nUEYYPPxN0Egml24sq0xTbxipcl28OBP8fP1as2GiufEeG4DNDUbgpDcR/+etH+sK\nOFNRxoWHAmDS9B41mDl70H+188Do0dlt6ahzI5g6oLh3RZE8N8Kxeun/Dkc88+GV\nOo+AuPQGJ6jKBDxTbmyNDM+6vmEQxoxi0MeP+iCyzQKBgApk3xFsP+12IxcU8+6t\nljAx75EVDmOpN+EpYc9/WoAhQtF4/pOlPn08LxajSOD17zfxlo7QvkXiO9bur2dV\nFyMY22jS3SAn5VJhR3SsbAmSQAOJ40mkACLEuVL6WCeAIruJNcsgGDBQtao6eg5L\n64NX7WpzPotVWP2DcuMDUQBu\n-----END PRIVATE KEY-----\n",
+  "client_email": "speech-to-text@robotics-project-431719.iam.gserviceaccount.com",
+  "client_id": "101821327467846698674",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-to-text%40robotics-project-431719.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
