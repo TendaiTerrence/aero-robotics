@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Google Cloud credentials
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'robotics-project-431719-402cadd1538d.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/etc/secrets/robotics-project-431719-402cadd1538d.json'
 
 # Global variable to store the computed path
 computed_path = None
