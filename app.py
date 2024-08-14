@@ -1,15 +1,11 @@
 from flask import Flask, jsonify, request, Response
-from flask.helpers import send_from_directory
 from flask_cors import CORS, cross_origin
 from google.cloud import speech
-import speech_recognition as sr
-import requests
-import threading
 import os
-import io
+import requests
+import time
 import heapq
 import math
-import time
 
 app = Flask(__name__)
 CORS(app)
@@ -17,61 +13,31 @@ CORS(app)
 # Google Cloud credentials
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'robotics-project-431719-402cadd1538d.json'
 
-# Audio recording parameters
-RATE = 16000
-
 # Global variable to store the computed path
 computed_path = None
 
-class MicrophoneStream:
-    """Opens a recording stream as a generator yielding the audio chunks."""
-    def __init__(self):
-        self.recognizer = sr.Recognizer()
-        self.microphone = sr.Microphone(sample_rate=RATE)
-
-    def __enter__(self):
-        with self.microphone as source:
-            self.recognizer.adjust_for_ambient_noise(source)
-        return self
-
-    def __exit__(self, type, value, traceback):
-        pass
-
-    def generator(self):
-        while True:
-            with self.microphone as source:
-                audio = self.recognizer.listen(source)
-                yield audio.get_raw_data()
-
-def listen_print_loop(responses):
-    for response in responses:
-        if not response.results:
-            continue
-        result = response.results[0]
-        if not result.alternatives:
-            continue
-        transcript = result.alternatives[0].transcript
-        yield f"data: {transcript}\n\n"
-
-@app.route('/stream/transcription', methods=['GET'])
+@app.route('/upload_audio', methods=['POST'])
 @cross_origin()
-def stream_transcription():
+def upload_audio():
+    file = request.files['file']
+    audio_data = file.read()
+
     client = speech.SpeechClient()
+
+    audio = speech.RecognitionAudio(content=audio_data)
     config = speech.RecognitionConfig(
         encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=RATE,
-        language_code="en-US",
+        sample_rate_hertz=16000,
+        language_code="en-US"
     )
-    streaming_config = speech.StreamingRecognitionConfig(config=config, interim_results=True)
 
-    def generate_responses():
-        with MicrophoneStream() as stream:
-            audio_generator = stream.generator()
-            requests = (speech.StreamingRecognizeRequest(audio_content=chunk) for chunk in audio_generator)
-            responses = client.streaming_recognize(streaming_config, requests)
-            return listen_print_loop(responses)
+    response = client.recognize(config=config, audio=audio)
 
-    return Response(generate_responses(), mimetype='text/event-stream')
+    for result in response.results:
+        transcript = result.alternatives[0].transcript
+        print(f"Transcript: {transcript}")
+    
+    return jsonify({"transcript": transcript}), 200
 
 @app.route('/record/send', methods=['POST'])
 @cross_origin()
@@ -105,8 +71,6 @@ def optimize_path():
     if computed_path is None:
         return jsonify({"error": "No path found"}), 404
     else:
-        # Send the computed path to the EV3 robot
-        # send_path_to_ev3(computed_path)
         return jsonify({"path": computed_path}), 200
 
 @app.route('/get-path', methods=['GET'])
