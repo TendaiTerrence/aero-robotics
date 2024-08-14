@@ -110,7 +110,7 @@ def send_path_to_ev3(path):
     url = f"http://{ev3_ip}:5000/path"
     try:
         response = requests.post(url, json={"path": path})
-        print(f"Sent path to EV3: {path}")
+        # print(f"Sent path to EV3: {path}")
         print(f"EV3 response status: {response.status_code}, text: {response.text}")
     except requests.exceptions.RequestException as e:
         print(f"Failed to send path to EV3: {e}")
